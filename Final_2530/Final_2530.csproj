@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B0BB1001-055F-4CD5-B66E-638F30D5ED0E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Final_2530</RootNamespace>
     <AssemblyName>Final_2530</AssemblyName>
@@ -100,41 +100,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\arm_shaded.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bed1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\game_over.png" />
     <Resource Include="Images\welcome.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\singl_arm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="scores.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\blue_arm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\arms_2.png" />
+    <Resource Include="scores.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\a1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bg_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\game_over_big.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

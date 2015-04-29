@@ -11,64 +11,54 @@ namespace Final_2530
     {
         StreamReader input;
         StreamWriter output;
-        List<long> scores;
+        List<int> scores;
+        string filepath;
 
-        public ScoreKeeper(string filepath)
+        public ScoreKeeper(string file)
         {
-            input = new StreamReader(filepath);
-            output = new StreamWriter(filepath);
-            scores = new List<long>();
-
+            scores = new List<int>();
+            filepath = file;
             ReadScores();
 
         }
 
         public void ReadScores()
         {
-            //string line;
-            //long score;
-            //string[] namesAndScores = new String[3];
-            //while ((line = input.ReadLine()) !=null)
-            //{
-            //    string[] tokens = line.Split(',');
-            //    score = long.Parse(tokens[1]);
-            //    scores.Add(tokens[0],score);
-            //}
-
-            //int count = 0
-            //foreach (KeyValuePair<string,long> item in scores.OrderBy(key=> key.Value))
-            //{ 
-            //    if (count == 3) return namesAndScores;
-            //    namesAndScores[count] = string.Format("Name: {0} Score: {1}",item.Key, item.Value);
-            //}
-
-            //return namesAndScores;
-
-            string line;
-            while ((line = input.ReadLine()) !=null)
+            using (input = new StreamReader(filepath))
             {
-                string[] tokens = line.Split(',');
-                scores.Add(long.Parse(tokens[0]));
+                string line;
+                while ((line = input.ReadLine()) != null)
+                {
+                    string[] tokens = line.Split(',');
+                    scores.Add(int.Parse(tokens[0]));
+                }
             }
-            scores.Sort();
+            scores.Sort((a, b) => -1 * a.CompareTo(b));
         }
 
-        public void AddScore(long score)
+        public void AddScore(int score)
         {
             scores.Add(score);
-            scores.Sort();
-            output.WriteLine(score);
+            scores.Sort((a, b) => -1 * a.CompareTo(b));
+            using (output = new StreamWriter(filepath))
+            {
+                foreach (int l in scores)
+                {
+                    output.WriteLine(l);
+                }
+            }
+
         }
 
-        public long[] GetScores()
+        public int[] GetScores()
         {
-            long[] top3 = new long[3];
-            for (int i = 0; i < 3; i++)
+            int[] top3 = new int[3];
+            int length = (scores.Count < 3) ? scores.Count : 3;
+            for (int i = 0; i < length; i++)
             {
                 top3[i] = scores[i];
             }
             return top3;
         }
-    
     }
 }

@@ -24,9 +24,10 @@ namespace Final_2530
 
         TimeSpan time;
         DispatcherTimer timer_sprites = new DispatcherTimer();
-        DispatcherTimer countDown;        
+        DispatcherTimer countDown;
         private Timer timer = new Timer(100);
-        
+
+        ScoreKeeper tops = new ScoreKeeper("scores.txt");
         Random rand = new Random();
         BitmapImage sourceBitmap = new BitmapImage(new Uri("pack://application:,,,/Images/a1.png"));
         WriteableBitmap destinationBitmap = null;
@@ -51,8 +52,8 @@ namespace Final_2530
         {
             InitializeComponent();
             disableGameOverBtn();
-           
-            //ScoreKeeper tops = new ScoreKeeper("C:/Users/Sony/Documents/GitHub/Final_2530/Final_2530/scores.txt");
+            finalScore.Visibility = Visibility.Hidden;
+            
         }
 
         #region StartGame & GameOver
@@ -60,32 +61,41 @@ namespace Final_2530
         private void StartGame()
         {
             disableWelcomeBtn();
+            
             init();
-            timer.Start();            
+            timer.Start();
         }
 
         private void GameOver()
         {
-            finalScore.Text = score.ToString();
+            finalScore.Visibility = Visibility.Visible;
+            tops.AddScore(score);
+            StringBuilder sb = new StringBuilder();
+            foreach (int el in tops.GetScores())
+            {
+                sb.Append(el + "\n");
+            }
+            finalScore.TextAlignment = TextAlignment.Center;
+            finalScore.Text = sb.ToString();
             countDown.Stop();
             disableBtns();
             disableClock();
             disableScorebox();
             enableGameOverBtn();
             arms = new Arm[0];
+            
         }
-        
+
         #endregion
 
         // Initialize
-        #region Init, SetBackground
+        #region Init
         // this initializes everything
         public void init()
         {
             // Setting things up
-            SetBackground();
-            Application.Current.Dispatcher.Invoke(() =>clock.Text = "CLOCK: 00:00:00");
-            Application.Current.Dispatcher.Invoke(() =>scorebox.Text = "SCORE: 0");
+            Application.Current.Dispatcher.Invoke(() => clock.Text = "CLOCK: 00:00:00");
+            Application.Current.Dispatcher.Invoke(() => scorebox.Text = "SCORE: 0");
 
             //timerstuff for handling sprite animation
             timer_sprites.Interval = new TimeSpan(0, 0, 0, 0, 180);
@@ -109,15 +119,6 @@ namespace Final_2530
             disableBtns();
         }
 
-        // sets background
-        private void SetBackground()
-        {
-            ImageBrush game_bg = new ImageBrush();
-            game_bg.ImageSource =
-                new BitmapImage(new Uri(@"pack://application:,,,/Images/bg_light.png"));
-            Application.Current.Dispatcher.Invoke(() =>this.Background = game_bg);
-        }
-
         #endregion
 
         // Score stuff
@@ -126,14 +127,19 @@ namespace Final_2530
         public void AddToScore(int value)
         {
             score += value;
-            Application.Current.Dispatcher.Invoke(() => scorebox.Text = "SCORE: " + score.ToString());
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                scorebox.Text = "SCORE: " + score.ToString();
+            });
         }
 
         public void SubtractFromScore(int value)
         {
             score -= value;
-            Application.Current.Dispatcher.Invoke(() => scorebox.Text = "SCORE: " + score.ToString());
-
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                scorebox.Text = "SCORE: " + score.ToString();
+            });
         }
 
         #endregion
@@ -157,7 +163,9 @@ namespace Final_2530
                 }
                 // count down by using -1
                 time = time.Add(TimeSpan.FromSeconds(-1));
-                if (time <= TimeSpan.FromSeconds(10) ) clock.Foreground = new SolidColorBrush(Colors.Red);
+                if (time <= TimeSpan.FromSeconds(10)) clock.Foreground = new SolidColorBrush(Colors.Red);
+                if (score < 0) scorebox.Foreground = new SolidColorBrush(Colors.Red);
+                if (score >= 0) scorebox.Foreground = new SolidColorBrush(Colors.White);
 
             }, Application.Current.Dispatcher);
 
@@ -277,7 +285,7 @@ namespace Final_2530
 
         // Used to enable and disable buttons as necessary
         #region enable/disable btns
-        
+
         private void disableBtns()
         {
             arm1.IsEnabled = false;
@@ -400,4 +408,3 @@ namespace Final_2530
         #endregion
     }
 }
- 
