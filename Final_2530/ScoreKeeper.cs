@@ -25,12 +25,30 @@ namespace Final_2530
 
         public void ReadScores()
         {
+            //string line;
+            //long score;
+            //string[] namesAndScores = new String[3];
+            //while ((line = input.ReadLine()) !=null)
+            //{
+            //    string[] tokens = line.Split(',');
+            //    score = long.Parse(tokens[1]);
+            //    scores.Add(tokens[0],score);
+            //}
+
+            //int count = 0
+            //foreach (KeyValuePair<string,long> item in scores.OrderBy(key=> key.Value))
+            //{ 
+            //    if (count == 3) return namesAndScores;
+            //    namesAndScores[count] = string.Format("Name: {0} Score: {1}",item.Key, item.Value);
+            //}
+
+            //return namesAndScores;
+
             string line;
-            while ((line = input.ReadLine()) != null)
+            while ((line = input.ReadLine()) !=null)
             {
-               // string[] tokens = line.Split(',');
-                //scores.Add(long.Parse(line));
-                Console.WriteLine(line);
+                string[] tokens = line.Split(',');
+                scores.Add(long.Parse(tokens[0]));
             }
             scores.Sort();
         }
@@ -51,5 +69,6 @@ namespace Final_2530
             }
             return top3;
         }
+    
     }
 }

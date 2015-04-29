@@ -5,7 +5,7 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/bg.png"/>
+            <ImageBrush ImageSource="Images/bg_light.png"/>
         </Grid.Background>
 
         <!--Custom made buttons that don't show hover effect (HARD to figure out)-->

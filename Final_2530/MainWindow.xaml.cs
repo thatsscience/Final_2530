@@ -51,7 +51,8 @@ namespace Final_2530
         {
             InitializeComponent();
             disableGameOverBtn();
-            //ScoreKeeper tops = new ScoreKeeper(@"pack://application:,,,/scores.txt");
+           
+            //ScoreKeeper tops = new ScoreKeeper("C:/Users/Sony/Documents/GitHub/Final_2530/Final_2530/scores.txt");
         }
 
         #region StartGame & GameOver
@@ -113,8 +114,8 @@ namespace Final_2530
         {
             ImageBrush game_bg = new ImageBrush();
             game_bg.ImageSource =
-                new BitmapImage(new Uri(@"pack://application:,,,/Images/bg.png"));
-            this.Background = game_bg;
+                new BitmapImage(new Uri(@"pack://application:,,,/Images/bg_light.png"));
+            Application.Current.Dispatcher.Invoke(() =>this.Background = game_bg);
         }
 
         #endregion
