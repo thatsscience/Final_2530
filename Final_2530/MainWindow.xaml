@@ -1,9 +1,13 @@
-﻿<Window x:Class="Final_2530.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Final_2530.MainWindow"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bg.png"/>
+        </Grid.Background>
+
         <!--Custom made buttons that don't show hover effect (HARD to figure out)-->
         <Button x:Name="arm1" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="465,226,95.309,269.764" RenderTransformOrigin="0.5,0.5" >
             <Button.RenderTransform>
@@ -14,9 +18,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Image Focusable="False" x:Name="Arm" Height="80" Width="219"  />
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="Border" CornerRadius="1,8,1,8" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
                         <!--<Border.Effect>
                             <DropShadowEffect />
@@ -37,8 +40,9 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Button.Template>
+            <Image Focusable="False" x:Name="Arm" Height="80" Width="219"  />
         </Button>
-        <Button x:Name="arm2" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="376,258,184.309,237.764" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="arm2" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="387,255,173.309,240.764" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -47,9 +51,41 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" CornerRadius="1,8,1,8" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
+                        <!--<Border.Effect>
+                            <DropShadowEffect />
+                        </Border.Effect>-->
+                        <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
             <Image Focusable="False" x:Name="Arm2" Height="80" Width="219"  />
+        </Button>
+        <Button x:Name="arm3" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="167,193,394.309,302.764" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-93.594"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="Border" CornerRadius="1,8,1,8" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
                         <!--<Border.Effect>
                             <DropShadowEffect />
@@ -70,41 +106,9 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Button.Template>
-        </Button>
-        <Button x:Name="arm3" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="145,221,416.309,274.764" RenderTransformOrigin="0.5,0.5" >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-93.594"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
             <Image Focusable="False" x:Name="Arm3" Height="80" Width="219"  />
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" CornerRadius="1,8,1,8" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
-                        <!--<Border.Effect>
-                            <DropShadowEffect />
-                        </Border.Effect>-->
-                        <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsKeyboardFocused" Value="true">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Button.Template>
         </Button>
-        <Button x:Name="arm4" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="238,255,323.309,240.764" RenderTransformOrigin="0.5,0.5" >
+        <Button x:Name="arm4" BorderThickness="0" Focusable="False" Background="Transparent" Click="arm_Click" Margin="274,243,287.309,252.764" RenderTransformOrigin="0.5,0.5" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -113,9 +117,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Image Focusable="False" x:Name="Arm4" Height="80" Width="219"  />
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="Border" CornerRadius="1,8,1,8" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
                         <!--<Border.Effect>
                             <DropShadowEffect />
@@ -136,20 +139,20 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Button.Template>
+            <Image Focusable="False" x:Name="Arm4" Height="80" Width="219"  />
         </Button>
-        
+
         <!--Menu and GameOver Buttons-->
         <Button x:Name="game_over" Background="Transparent" Focusable="False" Click="game_over_Click" >
             <Image Focusable="False" Height="600" Width="800" Source="Images/game_over.png"/>
         </Button>
-        <Button x:Name="menu_screen" Background="Transparent" Focusable="False" Click="menu_screen_Click">
+        <Button x:Name="menu_screen" Background="Transparent" Focusable="False" Click="menu_screen_Click" d:IsHidden="True">
             <Image Focusable="False" Height="600" Width="800" Source="Images/welcome.png"/>
         </Button>
-        
+
         <!--TextBoxes-->
         <TextBox x:Name="clock"  Margin="46,501,400.309,22.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="PalatineLinoType" FontSize="36" />
         <TextBox x:Name="scorebox" Margin="410,501,49.309,22.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="PalatineLinoType" FontSize="36"/>
-        <TextBox x:Name="finalScore" Margin="238,288,221.309,183.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="Arial" HorizontalAlignment="
-                 center" FontSize="66" />
+        <TextBox x:Name="finalScore" Margin="238,288,221.309,183.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="Arial" HorizontalAlignment="                  center" FontSize="66" />
     </Grid>
 </Window>

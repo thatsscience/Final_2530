@@ -20,7 +20,7 @@ namespace Final_2530
 {
     public partial class MainWindow : Window
     {
-        #region 
+        #region vari
 
         TimeSpan time;
         DispatcherTimer timer_sprites = new DispatcherTimer();
@@ -28,7 +28,7 @@ namespace Final_2530
         private Timer timer = new Timer(100);
         
         Random rand = new Random();
-        BitmapImage sourceBitmap = new BitmapImage(new Uri("pack://application:,,,/Images/arm_shaded.png"));
+        BitmapImage sourceBitmap = new BitmapImage(new Uri("pack://application:,,,/Images/a1.png"));
         WriteableBitmap destinationBitmap = null;
 
         Arm[] arms = new Arm[4];
@@ -113,7 +113,7 @@ namespace Final_2530
         {
             ImageBrush game_bg = new ImageBrush();
             game_bg.ImageSource =
-                new BitmapImage(new Uri(@"pack://application:,,,/Images/background.png"));
+                new BitmapImage(new Uri(@"pack://application:,,,/Images/bg.png"));
             this.Background = game_bg;
         }
 
