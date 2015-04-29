@@ -44,10 +44,7 @@ namespace Final_2530
             if (reaching && elapsedTime > 2000)
             {
                 int penalty = intervalGap * rand.Next(1, ((reaches > 1) ? reaches : 2) / 2);
-                // program.SubtractFromScore(penalty);
-                //reaching = false;
-                //elapsedTime = 0;
-                //retreating = true;
+                program.SubtractFromScore(penalty);
                 Click();
             }
 
@@ -57,7 +54,6 @@ namespace Final_2530
                 retreating = false;
                 intervalGap = Interval();
             }
-
         }
 
         private int Interval()
@@ -78,8 +74,6 @@ namespace Final_2530
                 button.Visibility = Visibility.Visible;
                 button.IsEnabled = true;
             });
-
-            Console.WriteLine("test");
         }
 
         public bool Click()
@@ -90,6 +84,7 @@ namespace Final_2530
                 reaching = false;
                 retreating = true;
                 elapsedTime = 0;
+                program.AddToScore(10000 - intervalGap);
                 intervalGap = Interval();
                 Application.Current.Dispatcher.Invoke(() =>
                 {
