@@ -153,6 +153,6 @@
         <!--TextBoxes-->
         <TextBox x:Name="clock"  Margin="46,501,400.309,22.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="PalatineLinoType" FontSize="36" />
         <TextBox x:Name="scorebox" Margin="410,501,49.309,22.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="PalatineLinoType" FontSize="36"/>
-        <TextBox x:Name="finalScore" Margin="238,288,221.309,183.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="Arial" HorizontalAlignment="                  center" FontSize="66" />
+        <TextBox x:Name="finalScore" Margin="99,245,95.309,226.764" BorderThickness="0" Background="Transparent" Foreground="White" FontFamily="Arial" HorizontalAlignment="center" FontSize="66" RenderTransformOrigin="0.5,0.5"  />
     </Grid>
 </Window>
