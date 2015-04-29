@@ -20,7 +20,7 @@ namespace Final_2530
 {
     public partial class MainWindow : Window
     {
-        #region vari
+        #region variables
 
         TimeSpan time;
         DispatcherTimer timer_sprites = new DispatcherTimer();
@@ -145,7 +145,7 @@ namespace Final_2530
         {
             // choose how long you want the application to run
             // Change the value in TimeSpan.FromSeconds to update how long the game lasts
-            time = TimeSpan.FromSeconds(5);
+            time = TimeSpan.FromSeconds(165);
 
             countDown = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
