@@ -1,4 +1,9 @@
-﻿using System;
+﻿/******************************************
+ *  Authors: Nathan Ivy && Bryant Morrill
+ *  Whack-A-Monster
+ ******************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +25,7 @@ namespace Final_2530
 {
     public partial class MainWindow : Window
     {
-        #region variables
+        #region Fields
 
         TimeSpan time;
         DispatcherTimer timer_sprites = new DispatcherTimer();
@@ -52,10 +57,10 @@ namespace Final_2530
         {
             InitializeComponent();
             disableGameOverBtn();
-            finalScore.Visibility = Visibility.Hidden;
-            
+            finalScore.Visibility = Visibility.Hidden;            
         }
 
+        // Start and End the game
         #region StartGame & GameOver
 
         private void StartGame()

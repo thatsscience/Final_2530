@@ -19,7 +19,6 @@ namespace Final_2530
             scores = new List<int>();
             filepath = file;
             ReadScores();
-
         }
 
         public void ReadScores()
@@ -47,7 +46,6 @@ namespace Final_2530
                     output.WriteLine(l);
                 }
             }
-
         }
 
         public int[] GetScores()
