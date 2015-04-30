@@ -147,7 +147,7 @@
             <Image Focusable="False" Height="600" Width="800" Source="Images/game_over_big.png"/>
         </Button>
         <Button x:Name="menu_screen" Background="Transparent" Focusable="False" Click="menu_screen_Click" d:IsHidden="True">
-            <Image Focusable="False" Height="600" Width="800" Source="Images/welcome.png"/>
+            <Image Focusable="False" Height="600" Width="800" Source="Images/welcome_splash.png"/>
         </Button>
 
         <!--TextBoxes-->
