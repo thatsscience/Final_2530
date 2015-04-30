@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Final_2530.Properties;
 
 using System.Windows.Threading;
 
@@ -32,7 +33,12 @@ namespace Final_2530
         DispatcherTimer countDown;
         private Timer timer = new Timer(100);
 
+        //path to the debug bin
         ScoreKeeper tops = new ScoreKeeper("scores.txt");
+        
+        //absolute path
+        //ScoreKeeper tops = new ScoreKeeper("C:/Users/Sony/Documents/GitHub/Final_2530/Final_2530/scores.txt");
+
         Random rand = new Random();
         BitmapImage sourceBitmap = new BitmapImage(new Uri("pack://application:,,,/Images/a1.png"));
         WriteableBitmap destinationBitmap = null;
