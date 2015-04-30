@@ -1,4 +1,9 @@
-﻿using System;
+﻿/******************************************
+ *  Authors: Nathan Ivy && Bryant Morrill
+ *  Whack-A-Monster
+ ******************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
